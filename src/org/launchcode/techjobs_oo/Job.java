@@ -61,7 +61,10 @@ public class Job {
 
     public String toString(){
         String output = "";
-        output = "ID: " + this.id + "\n" + "Name: " + this.getName() + "\n" +"Employer: " + this.getEmployer() +"\n" + "Location: " + this.getLocation() + "\n" + "Position Type: " + this.getPositionType() + "\n" + "Core Competency: " + this.getCoreCompetency() ;
+        if(this.getEmployer().value.isEmpty()){
+            getEmployer().value = "Data not available.";
+        }
+        output = "\nID: " + this.id + "\n" + "Name: " + this.getName() + "\n" +"Employer: " + this.getEmployer() +"\n" + "Location: " + this.getLocation() + "\n" + "Position Type: " + this.getPositionType() + "\n" + "Core Competency: " + this.getCoreCompetency() + "\n" ;
         return output;
     }
 

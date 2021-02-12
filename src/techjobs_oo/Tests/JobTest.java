@@ -15,8 +15,12 @@ public class JobTest {
     public void testSettingJobId(){
         jobOne = new Job();
         jobTwo = new Job();
+        Employer e = new Employer("Potato");
+        Employer eTwo = new Employer("Alien");
 
-        assertEquals(1, jobOne.getId());
+        assertEquals(1, jobTwo.getId() - jobOne.getId());
+        assertEquals(1, eTwo.getId() - e.getId());
+        assertEquals("Alien", eTwo.getValue());
     }
 
 
@@ -42,7 +46,7 @@ public class JobTest {
     public void jobCustomToString(){
         job = new Job("Seller", new Employer("GameStonk"), new Location("Nevada"), new PositionType("Clerk"), new CoreCompetency("Stonks"));
         String output = "";
-        output = "ID: 3\nName: Seller\nEmployer: GameStonk\nLocation: Nevada\nPosition Type: Clerk\nCore Competency: Stonks";
+        output = "\nID: 10\nName: Seller\nEmployer: GameStonk\nLocation: Nevada\nPosition Type: Clerk\nCore Competency: Stonks\n";
         assertEquals(output, job.toString());
     }
 
