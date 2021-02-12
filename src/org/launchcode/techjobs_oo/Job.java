@@ -51,21 +51,39 @@ public class Job {
     //  and id.
 
 
+    public String toString(){
+        String output = "";
+        String doesNotExist = "";
+
+        if (this.getLocation().value.isEmpty() && this.getEmployer().value.isEmpty() && this.getPositionType().value.isEmpty() && this.getName().isEmpty() && this.getCoreCompetency().value.isEmpty()){
+            doesNotExist = "OOPS! This job does not seem to exist.";
+            return doesNotExist;
+        }
+        if(this.getEmployer().value.isEmpty() || this.getEmployer().value == null){
+            getEmployer().value = "Data not available.";
+        }
+        if (this.getName().isEmpty() || this.getName() == null) {
+            this.setName("Data not available");
+        }
+        if (this.getCoreCompetency().value.isEmpty() || this.getCoreCompetency().value == null){
+            this.getCoreCompetency().value = "Data not available.";
+        }
+        if (this.getLocation().value.isEmpty() || this.getLocation().value == null){
+            this.getLocation().value = "Data not available.";
+        }
+        if (this.getPositionType().value.isEmpty() || this.getPositionType().value == null){
+            this.getPositionType().value = "Data not available.";
+        }
+        output = "\nID: " + this.id + "\n" + "Name: " + this.getName() + "\n" +"Employer: " + this.getEmployer() +"\n" + "Location: " + this.getLocation() + "\n" + "Position Type: " + this.getPositionType() + "\n" + "Core Competency: " + this.getCoreCompetency() + "\n" ;
+        return output;
+    }
+
     public String getName() {
         return name;
     }
 
     public int getId() {
         return id;
-    }
-
-    public String toString(){
-        String output = "";
-        if(this.getEmployer().value.isEmpty()){
-            getEmployer().value = "Data not available.";
-        }
-        output = "\nID: " + this.id + "\n" + "Name: " + this.getName() + "\n" +"Employer: " + this.getEmployer() +"\n" + "Location: " + this.getLocation() + "\n" + "Position Type: " + this.getPositionType() + "\n" + "Core Competency: " + this.getCoreCompetency() + "\n" ;
-        return output;
     }
 
     public void setName(String name) {
